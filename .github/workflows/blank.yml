@@ -45,7 +45,7 @@ jobs:
         id: manual-trigger
         uses: benhamiltonpro/manual-trigger@v1
         with:
-          RUN_NAME: "build"
+          RUN_NAME: "publish"
 
 
   publish:
