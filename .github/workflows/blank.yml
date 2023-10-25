@@ -39,7 +39,7 @@ jobs:
   manual-trigger-deploy:
     runs-on: ubuntu-latest
     outputs:
-      PUBLISH_RELEASE: ${{ steps.manual-trigger.outputs.PUBLISH_RELEASE }}
+      PUBLISH_RELEASE: ${{ steps.manual-trigger.outputs.CONTINUE_JOBS }}
     steps:
       - name: manual-trigger
         id: manual-trigger
@@ -50,7 +50,7 @@ jobs:
 
   publish:
     needs: build
-    if: ${{ needs.manual-trigger-deploy.outputs.PUBLISH_RELEASE == 'true'}}
+    if: ${{ needs.manual-trigger-deploy.outputs.CONTINUE_JOBS == 'true'}}
     runs-on: ubuntu-latest
     steps:
       - name: Publish Relase
