@@ -38,7 +38,7 @@ jobs:
   manual-trigger-deploy:
     runs-on: ubuntu-latest
     outputs:
-      PUBLISH_RELEASE: ${{ steps.manual-trigger.outputs.CONTINUE_JOBS }}
+      CONTINUE_JOBS: ${{ steps.manual-trigger.outputs.CONTINUE_JOBS }}
     steps:
       - name: manual-trigger
         id: manual-trigger
