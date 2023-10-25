@@ -49,7 +49,6 @@ jobs:
 
 
   publish:
-    needs: build
     if: ${{ needs.manual-trigger-deploy.outputs.CONTINUE_JOBS == 'true'}}
     runs-on: ubuntu-latest
     steps:
