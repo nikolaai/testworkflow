@@ -35,3 +35,23 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
         if: github.event_name == 'workflow_dispatch'
+  
+  manual-trigger-deploy:
+    runs-on: ubuntu-latest
+    outputs:
+      PUBLISH_RELEASE: ${{ steps.manual-trigger.outputs.PUBLISH_RELEASE }}
+    steps:
+      - name: manual-trigger
+        id: manual-trigger
+        uses: benhamiltonpro/manual-trigger@v1
+        with:
+          RUN_NAME: "build"
+
+
+  publish:
+    needs: build
+    if: ${{ needs.manual-trigger-deploy.outputs.PUBLISH_RELEASE == 'true'}}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Publish Relase
+        run: echo "Publishing Release"
