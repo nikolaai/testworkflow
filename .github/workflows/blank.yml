@@ -80,6 +80,12 @@ jobs:
       - name: check artifacts
         run: cat artifacts/test1.txt
 
+      - name: Restore cache
+        uses: actions/cache/restore@v3
+        with:
+          path: ~/.gradle/cache
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
+
       - name: check cache
         run: cat .gradle/cache/testGradle1.gradle
 
