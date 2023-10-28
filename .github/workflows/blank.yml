@@ -70,7 +70,7 @@ jobs:
         uses: actions/cache/save@v3
         with:
           path: ~/.gradle/cache
-          key: apk-cache-toolbox
+          key: apk-cache-toolbox-${{ github.sha }}}
 
   test:
     runs-on: ubuntu-latest
@@ -92,7 +92,7 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ~/.gradle/cache
-          key: apk-cache-toolbox
+          key: apk-cache-toolbox-${{ github.sha }}}
 
       - name: check cache
         run: cat ~/.gradle/cache/testGradle1.gradle
