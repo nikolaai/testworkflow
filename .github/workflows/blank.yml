@@ -96,7 +96,7 @@ jobs:
           key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
 
       - name: check cache
-        run: cat .gradle/cache/testGradle1.gradle
+        run: cat ~/.gradle/cache/testGradle1.gradle
 
       
 
