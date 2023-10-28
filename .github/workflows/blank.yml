@@ -36,12 +36,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Print hash
-        run: echo ${{ hashFiles('**/*.gradle') }}
-
-      - name: Print key
-        run: echo ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
-
       - name: create dir for artifacts
         run: mkdir -p artifacts
 
@@ -50,6 +44,12 @@ jobs:
 
       - name: Populate cache
         run: echo testGradle1 >> ~/.gradle/cache/testGradle1.gradle
+
+      - name: Print hash
+        run: echo ${{ hashFiles('~/**/*.gradle') }}
+
+      - name: Print key
+        run: echo ${{ runner.os }}-gradle-${{ hashFiles('~/**/*.gradle') }}
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
