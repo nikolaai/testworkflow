@@ -39,7 +39,7 @@ jobs:
         run: mkdir -p artifacts
 
       - name: create dir for caching
-        run: mkdir -p .gradle/cache
+        run: mkdir -p ~/.gradle/cache
 
       - name: Populate cache
         run: echo testGradle1 >> .gradle/cache/testGradle1.gradle
@@ -70,7 +70,7 @@ jobs:
         id: cache-gradle
         with:
           path: ~/.gradle/cache
-          key: apk-gradle-cache-key
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
 
   test:
     runs-on: ubuntu-latest
@@ -93,7 +93,7 @@ jobs:
         id: cache-gradle
         with:
           path: ~/.gradle/cache
-          key: apk-gradle-cache-key
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
 
       - name: check cache
         run: cat .gradle/cache/testGradle1.gradle
