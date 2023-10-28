@@ -15,7 +15,7 @@ RUN apk add --no-cache \
     tar \
     unzip \
     wget \
-    nmap
+    nmap 
 
 # Add option to ignore host verification to ssh_config
 RUN echo -e "Host *\n\tStrictHostKeyChecking no\n\n" >> /etc/ssh/ssh_config
