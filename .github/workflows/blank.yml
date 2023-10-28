@@ -68,6 +68,7 @@ jobs:
     runs-on: ubuntu-latest
     # container:
     #   image: ghcr.io/nikolaai/toolbox:latest
+    needs: build
     
     steps:
       - name: check artifacts
