@@ -46,7 +46,7 @@ jobs:
         run: echo testGradle1 >> ~/.gradle/cache/testGradle1.gradle
 
       - name: Print hash
-        run: echo ${{ hashFiles('~/**/*.gradle') }}
+        run: echo ${{ hashFiles('~/**/**/*.gradle') }}
 
       - name: Print key
         run: echo ${{ runner.os }}-gradle-${{ hashFiles('~/**/*.gradle') }}
