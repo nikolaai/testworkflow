@@ -1,0 +1,27 @@
+FROM alpine:3.18.4
+
+# Update packages
+RUN apk update
+
+# Install packages
+RUN apk add --no-cache \
+    bash \
+    curl \
+    git \
+    jq \
+    openssh-client \
+    openssl \
+    rsync \
+    tar \
+    unzip \
+    wget \
+    nmap
+
+# Add option to ignore host verification to ssh_config
+RUN echo -e "Host *\n\tStrictHostKeyChecking no\n\n" >> /etc/ssh/ssh_config
+
+# Change default shell to bash
+RUN sed -i -e "s/bin\/ash/bin\/bash/" /etc/passwd
+
+# Start container with bash
+CMD ["/bin/bash"]
