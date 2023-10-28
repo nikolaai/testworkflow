@@ -61,7 +61,7 @@ jobs:
       #   id: cache-gradle
       #   with:
       #     path: ~/.gradle/cache
-      #     key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
+      #     key: ${{ runner.os }}-gradle-${{ hashFiles('~/**/*.gradle') }}
       #     restore-keys: |
       #       ${{ runner.os }}-gradle-
       #       ${{ runner.os }}-
@@ -70,7 +70,7 @@ jobs:
         uses: actions/cache/save@v3
         with:
           path: ~/.gradle/cache
-          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
+          key: ${{ runner.os }}-gradle-${{ hashFiles('~/**/*.gradle') }}
 
   test:
     runs-on: ubuntu-latest
