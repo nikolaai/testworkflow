@@ -1,4 +1,4 @@
-name: Build and Push Docker Image
+name: Build and Push toolbox image
 
 on:
     workflow_dispatch: # Manually run workflow
@@ -35,9 +35,9 @@ jobs:
     #       IMAGE_TAG="ghcr.io/$GITHUB_REPOSITORY:${{ env.TAG }}"
     #       docker push $IMAGE_TAG
     #       docker push ghcr.io/$GITHUB_REPOSITORY:latest
-    
+
       - name: Push docker image to github container registry
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v5
         with:
           context: .
           file: ./Dockerfile.toolbox
