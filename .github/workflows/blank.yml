@@ -86,7 +86,7 @@ jobs:
         id: cache-gradle
         with:
           path: ~/.gradle/cache
-          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
+          key: cache-${{ hashFiles('**/*.gradle') }}
 
       - name: check cache
         run: cat .gradle/cache/testGradle1.gradle
