@@ -60,7 +60,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ~/.gradle/cache
-          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
+          key: ${{ runner.os }}-gradle-${{ github.sha }}
           restore-keys: |
             ${{ runner.os }}-gradle-
             ${{ runner.os }}-
