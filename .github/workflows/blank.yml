@@ -17,7 +17,11 @@ on:
       - "**.md"
     tags-ignore:
       - "**"
-
+  release:
+    types: [published]
+    branches: [ "main" ]
+    paths-ignore:
+      - "**.md" 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -122,10 +126,10 @@ jobs:
   #         RUN_NAME: "manual-trigger-publish"
 
 
-  # publish:
-  #   needs: manual-trigger-publish
-  #   if: ${{ needs.manual-trigger-publish.outputs.CONTINUE_JOBS == 'true'}}
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Publish Relase
-  #       run: echo "Publishing Release"
+  publish:
+    # add condition to only run if release is published
+    if: github.event_name == 'release' && github.event.action == 'published'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Publish Relase
+        run: echo "Publishing Release"
