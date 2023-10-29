@@ -9,14 +9,14 @@ on:
     branches: [ "main" ]
     paths-ignore: 
       - "**.md"
-    tags-ignore: 
-      - "**"
+    # tags-ignore: 
+    #   - "**"
   pull_request:
     branches: [ "main" ]
     paths-ignore: 
       - "**.md"
-    tags-ignore:
-      - "**"
+    # tags-ignore:
+    #   - "**"
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -53,7 +53,7 @@ jobs:
         run: mkdir -p ~/.gradle/cache
 
       - name: Populate cache
-        run: echo testGradle6 >> ~/.gradle/cache/testGradle1.gradle
+        run: echo $(date) >> ~/.gradle/cache/testGradle1.gradle
 
       # Runs a single command using the runners shell
       - name: Run a one-line script

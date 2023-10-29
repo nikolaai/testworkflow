@@ -1,0 +1,32 @@
+name: publish release
+
+on:
+  release:
+    types: [published]
+
+jobs:
+    test:
+        runs-on: ubuntu-latest
+        container:
+            image: ghcr.io/nikolaai/toolbox:latest
+        
+        steps:
+          - name: download artifacts
+            uses: actions/download-artifact@v3
+            with:
+                name: artifacts
+                path: artifacts
+
+          - name: check artifacts
+            run: cat artifacts/test1.txt
+
+          - name: Restore cache
+            uses: actions/cache/restore@v3
+            with:
+                path: ~/.gradle/cache
+                key: ${{ runner.os }}-${{ github.sha }}
+                restore-keys: |
+                    ${{ runner.os }}-gradle-
+
+          - name: check cache
+            run: cat ~/.gradle/cache/testGradle1.gradle
