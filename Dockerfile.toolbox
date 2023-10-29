@@ -26,4 +26,4 @@ RUN sed -i -e "s/bin\/ash/bin\/bash/" /etc/passwd
 # Start container with bash
 CMD ["/bin/bash"]
 
-# test tags v1.1.1
+# test tags v1.1.2
