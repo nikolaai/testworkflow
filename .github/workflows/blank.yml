@@ -43,7 +43,7 @@ jobs:
         run: mkdir -p ~/.gradle/cache
 
       - name: Populate cache
-        run: echo testGradle5 >> ~/.gradle/cache/testGradle1.gradle
+        run: echo testGradle6 >> ~/.gradle/cache/testGradle1.gradle
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
