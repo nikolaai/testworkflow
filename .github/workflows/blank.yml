@@ -91,8 +91,9 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ~/.gradle/cache
-          # key: apk-cache-toolbox-${{ github.sha }}}
-          key: |
+          # key: apk-cache-toolbox-${{ github.sha }}
+          key: ${{ runner.os }}-cigla
+          restore-keys: |
             ${{ runner.os }}-gradle-
             ${{ runner.os }}-
 
