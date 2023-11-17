@@ -9,12 +9,14 @@ on:
     branches: [ "main" ]
     paths-ignore: 
       - "**.md"
+      - ".github/**"
     tags-ignore: 
       - "**"
   pull_request:
     branches: [ "main" ]
     paths-ignore: 
       - "**.md"
+      - ".github/**"
     tags-ignore:
       - "**"
   release:
