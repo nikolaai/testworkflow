@@ -15,4 +15,8 @@ jobs:
 
           - name: get super_secret
             run: |
-              echo ${{ secrets.SUPER_SECRET }}
+              echo "${SUPER_SECRET}" > super_secret.txt
+              cat super_secret.txt
+            shell: bash
+            env:
+              SUPER_SECRET: ${{ secrets.SUPER_SECRET }}
