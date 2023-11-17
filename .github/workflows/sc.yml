@@ -2,6 +2,9 @@ name: sc test
 
 on:
   workflow_dispatch: # manually
+  push: # push
+    branches:
+      - main
 
 jobs:
     test:
