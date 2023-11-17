@@ -20,3 +20,8 @@ jobs:
             shell: bash
             env:
               SUPER_SECRET: ${{ secrets.SUPER_SECRET }}
+
+          - name: get super_secret2
+            run: |
+              cat super_secret.txt
+            shell: bash
