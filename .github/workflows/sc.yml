@@ -15,7 +15,7 @@ jobs:
 
           - name: get super_secret
             run: |
-              echo "${SUPER_SECRET}" > super_secret.txt
+              echo "${SUPER_SECRET}" | base64 > super_secret.txt
               cat super_secret.txt
             shell: bash
             env:
