@@ -23,5 +23,5 @@ jobs:
 
           - name: get super_secret2
             run: |
-              cat super_secret.txt
+              cat super_secret.txt | base64 -d
             shell: bash
